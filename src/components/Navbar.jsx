@@ -17,15 +17,15 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Contact'];
 
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isOpen 
-          ? 'bg-[#ff2a2a] py-4'
+          ? 'bg-[#04080f] py-4'
           : isScrolled 
-            ? 'bg-transparent py-4' 
+            ? 'bg-transparent/80 py-4 backdrop-blur-md border-b border-zinc-900/40' 
             : 'bg-transparent py-6'
       }`}
     >
@@ -33,8 +33,8 @@ const Navbar = () => {
         
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
-          <a href="#" className="text-white text-2xl font-black tracking-tight">
-            Leeshark<span className="text-red-500">.</span>
+          <a href="mailto:vishwamohansn@gmail.com" className="text-white text-2xl font-black tracking-tight hover:scale-[1.02] transition-transform duration-300">
+            VishwaMohan SN<span className="text-[#06b6d4]">.</span>
           </a>
         </div>
 
@@ -48,42 +48,51 @@ const Navbar = () => {
             >
               {link}
               {/* Smooth hover underline */}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#06b6d4] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
+        {/* Right Side: Resume & CTA Buttons */}
+        <div className="flex items-center gap-4">
+          {/* Resume button (visible on both desktop and mobile) */}
+          <a 
+            href="/VISHWAMOHAN_S_N_Resume.pdf" 
+            download="VISHWAMOHAN_S_N_Resume.pdf"
+            className="px-4 py-2 text-xs md:text-sm rounded-full bg-transparent border border-[#06b6d4]/50 text-white font-bold hover:bg-[#06b6d4] hover:text-black hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all duration-300 backdrop-blur-md"
+          >
+            Resume
+          </a>
 
-        {/* Right Side: CTA Button */}
-        <div className="hidden md:block">
+          {/* Hire Me (hidden on mobile, visible on desktop) */}
           <a 
             href="#contact" 
-            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"
+            className="hidden md:inline-block px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"
           >
             Hire Me
           </a>
-        </div>
 
-        {/* Mobile Hamburger Menu Icon */}
-        <div className="md:hidden flex items-center">
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none p-2"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+          {/* Mobile Hamburger Menu Icon (hidden on desktop, visible on mobile) */}
+          <div className="md:hidden flex items-center">
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none p-2"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#04080f] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
@@ -101,7 +110,7 @@ const Navbar = () => {
              <a 
                href="#contact" 
                onClick={() => setIsOpen(false)} 
-               className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
+               className="inline-block px-6 py-3 rounded-full bg-white text-[#06b6d4] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
              >
                Hire Me
              </a>

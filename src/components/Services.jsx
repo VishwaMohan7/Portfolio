@@ -1,229 +1,632 @@
-import React, { useRef, useState } from 'react';
-import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength, containerRef }) => {
-  const ref = useRef(null);
-  const [isActive, setIsActive] = useState(false);
+// Tech stack items directly from resume
+const techData = [
+  // Programming
+  { 
+    id: 'python', 
+    name: 'Python', 
+    category: 'Programming & Logic', 
+    icon: '🐍', 
+    usage: 'Core programming language for ML workflows, dataset preparation, and backend routing layers.' 
+  },
+  { 
+    id: 'java', 
+    name: 'Java', 
+    category: 'Programming & Logic', 
+    icon: '☕', 
+    usage: 'Object-oriented programming, data structures, and algorithmic logic workflows.' 
+  },
+  { 
+    id: 'c_lang', 
+    name: 'C / C++', 
+    category: 'Programming & Logic', 
+    icon: '⚙️', 
+    usage: 'Low-level hardware firmware loop development for ESP32 systems and hardware nodes.' 
+  },
 
-  useMotionValueEvent(pathLength, "change", (latest) => {
-    if (!ref.current || !containerRef.current) return;
-    
-    const cardRect = ref.current.getBoundingClientRect();
-    const containerRect = containerRef.current.getBoundingClientRect();
-    
-    const cardTopRelativeToContainer = cardRect.top - containerRect.top;
-    const containerHeight = containerRect.height;
-    
-    // Trigger when the line tip is 50px into the card
-    const triggerY = cardTopRelativeToContainer + 50;
-    const lineTipY = latest * containerHeight;
-    
-    if (lineTipY >= triggerY && !isActive) {
-      setIsActive(true);
-    } else if (lineTipY < triggerY && isActive) {
-      setIsActive(false);
-    }
-  });
+  // Libraries & Frameworks
+  { 
+    id: 'pytorch', 
+    name: 'PyTorch', 
+    category: 'Libraries & Frameworks', 
+    icon: '🔥', 
+    usage: 'Designing CNN models (VGG16), training networks, and customizing eye-tracking models.' 
+  },
+  { 
+    id: 'tensorflow', 
+    name: 'TensorFlow', 
+    category: 'Libraries & Frameworks', 
+    icon: '📊', 
+    usage: 'Deep learning modeling pipelines, neural layer structures, and training runs.' 
+  },
+  { 
+    id: 'opencv', 
+    name: 'OpenCV', 
+    category: 'Libraries & Frameworks', 
+    icon: '👁️', 
+    usage: 'Real-time computer vision frame pre-processing, matrix operations, and face landmark models.' 
+  },
+  { 
+    id: 'yolov8', 
+    name: 'YOLOv8', 
+    category: 'Libraries & Frameworks', 
+    icon: '🎯', 
+    usage: 'Deploying high-speed object detection models for localized classification in medical X-rays.' 
+  },
+  { 
+    id: 'scikit_learn', 
+    name: 'Scikit-Learn', 
+    category: 'Libraries & Frameworks', 
+    icon: '🧠', 
+    usage: 'Statistical data scaling, feature engineering, and traditional classification models.' 
+  },
+  { 
+    id: 'pyqt5', 
+    name: 'PyQt5', 
+    category: 'Libraries & Frameworks', 
+    icon: '💻', 
+    usage: 'Designing responsive desktop layouts, GUI event structures, and real-time canvas paints.' 
+  },
+  { 
+    id: 'psutil', 
+    name: 'psutil & WMI', 
+    category: 'Libraries & Frameworks', 
+    icon: '📈', 
+    usage: 'Interacting with low-level Windows APIs, reading CPU cores, temperature nodes, and system threads.' 
+  },
+  { 
+    id: 'cryptography', 
+    name: 'AES / RSA', 
+    category: 'Libraries & Frameworks', 
+    icon: '🔐', 
+    usage: 'Applying symmetric AES encryption, asymmetric RSA key structures, and secure hashing operations.' 
+  },
 
-  return (
-    <div 
-      ref={ref}
-      data-aos={aosType || "fade-up"} 
-      data-aos-delay={aosDelay}
-      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${
-        isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
-      }`}
-    >
-      {/* The hole punch */}
-      <div className="w-5 h-5 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] absolute top-4 border border-gray-300 z-10 flex items-center justify-center">
-        <div className="w-2 h-2 bg-gray-800 rounded-full opacity-20"></div>
-      </div>
-      
-      {/* Inner container */}
-      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
-        isActive ? 'bg-red-700/50' : 'bg-[#f4f4f4]'
-      }`}>
-        <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${
-          isActive ? 'text-red-200' : 'text-gray-400'
-        }`}>{number}</span>
-        
-        <h3 className={`text-2xl font-black mb-3 tracking-tight transition-colors duration-700 ${
-          isActive ? 'text-white' : 'text-gray-900'
-        }`}>{title}</h3>
-        
-        <p className={`text-sm leading-relaxed font-medium transition-colors duration-700 ${
-          isActive ? 'text-red-100' : 'text-gray-500'
-        }`}>
-          {text}
-        </p>
-      </div>
-    </div>
-  );
+  // Backend & Databases
+  { 
+    id: 'fastapi', 
+    name: 'FastAPI', 
+    category: 'Backend & Databases', 
+    icon: '⚡', 
+    usage: 'Designing asynchronous RESTful API structures connecting local model endpoints to UI panels.' 
+  },
+  { 
+    id: 'flask', 
+    name: 'Flask', 
+    category: 'Backend & Databases', 
+    icon: '🧪', 
+    usage: 'Building lightweight microservices and routing structures for system interfaces.' 
+  },
+  { 
+    id: 'mysql', 
+    name: 'MySQL', 
+    category: 'Backend & Databases', 
+    icon: '🐬', 
+    usage: 'Relational schema design and query execution for attendance logs and telemetry archives.' 
+  },
+  { 
+    id: 'firebase', 
+    name: 'Firebase', 
+    category: 'Backend & Databases', 
+    icon: '🔥', 
+    usage: 'Implementing real-time data synchronizations and serverless user database connections.' 
+  },
+  { 
+    id: 'sqlite', 
+    name: 'SQLite', 
+    category: 'Backend & Databases', 
+    icon: '🗃️', 
+    usage: 'Designing lightweight offline database structures for archiving diagnostics and companion telemetry.' 
+  },
+  { 
+    id: 'web_dev', 
+    name: 'HTML/CSS/JS', 
+    category: 'Backend & Databases', 
+    icon: '🌐', 
+    usage: 'Structuring browser-native client pages and styling responsive frontend layouts.' 
+  },
+
+  // AI/ML & Cloud Tools
+  { 
+    id: 'llms', 
+    name: 'LLMs & GenAI', 
+    category: 'AI/ML & Cloud Tools', 
+    icon: '🦙', 
+    usage: 'Fine-tuning local large language models (Llama 3) for medical symptom reasoning.' 
+  },
+  { 
+    id: 'prompt_eng', 
+    name: 'Prompt Eng.', 
+    category: 'AI/ML & Cloud Tools', 
+    icon: '✍️', 
+    usage: 'Structuring context pipelines and custom clinical guardrails for chatbot outputs.' 
+  },
+  { 
+    id: 'vertex_ai', 
+    name: 'Vertex AI', 
+    category: 'AI/ML & Cloud Tools', 
+    icon: '☁️', 
+    usage: 'Managing Google Cloud training jobs, model version control, and scalable API endpoints.' 
+  },
+  { 
+    id: 'ollama', 
+    name: 'Ollama', 
+    category: 'AI/ML & Cloud Tools', 
+    icon: '🧮', 
+    usage: 'Orchestrating local model compilation and real-time token streaming operations.' 
+  },
+  { 
+    id: 'streamlit', 
+    name: 'Streamlit', 
+    category: 'AI/ML & Cloud Tools', 
+    icon: '🎨', 
+    usage: 'Building diagnostic user interfaces and reactive voice assistant interfaces.' 
+  },
+
+  // IoT & Hardware
+  { 
+    id: 'esp32', 
+    name: 'ESP32', 
+    category: 'IoT & Hardware', 
+    icon: '📟', 
+    usage: 'Programming hardware boards, GPIO sensor reads, and wireless alerts over network stacks.' 
+  },
+  { 
+    id: 'sensors', 
+    name: 'Sensors & Edge', 
+    category: 'IoT & Hardware', 
+    icon: '🔌', 
+    usage: 'Connecting hardware components including temperature probes, accelerometers, and GPS links.' 
+  }
+];
+
+// Project items directly from resume
+const projectsData = [
+  {
+    id: 'osteoporosis',
+    title: 'Osteoporosis Detection System',
+    subtitle: 'AI/ML Medical Screening',
+    description: 'Developed an AI-based early detection system using X-ray analysis, leveraging CNN models (YOLOv8, VGG16) deployed on Vertex AI.',
+    techs: ['python', 'yolov8', 'pytorch', 'tensorflow', 'vertex_ai'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 3.75a6 6 0 00-5.98 6.496A5.25 5.25 0 006.75 20.25H18a4.5 4.5 0 002.206-8.423 3.75 3.75 0 00-5.956-4.328 6 6 0 00-3.75-3.75z" />
+      </svg>
+    )
+  },
+  {
+    id: 'health_companion',
+    title: 'AI Village Health Companion',
+    subtitle: 'Multilingual GenAI Voice Assistant',
+    description: 'Built an interactive symptom guidance tool powered by Llama 3 & Ollama with prompt engineering, Streamlit, and TTS/STT integration.',
+    techs: ['python', 'llms', 'prompt_eng', 'ollama', 'streamlit'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+      </svg>
+    )
+  },
+  {
+    id: 'coldwatch',
+    title: 'Smart Organ Box (COLDWATCH)',
+    subtitle: 'IoT Biomedical Logistics',
+    description: 'Built a real-time cold-chain tracking solution utilizing ESP32, temperature sensors, GPS modules, accelerometers, and GSM alerts.',
+    techs: ['c_lang', 'esp32', 'sensors'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.008 1.24l.885 1.77a2.25 2.25 0 002.007 1.24h1.98a2.25 2.25 0 002.007-1.24l.885-1.77a2.25 2.25 0 012.007-1.24h3.86m-18 0h18" />
+      </svg>
+    )
+  },
+  {
+    id: 'attendance',
+    title: 'Attendance Monitoring System',
+    subtitle: 'Real-Time Face Recognition Portal',
+    description: 'Developed a real-time facial recognition verification portal with OpenCV and deep learning, logging entries to MySQL schemas.',
+    techs: ['python', 'opencv', 'mysql'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493" />
+      </svg>
+    )
+  },
+  {
+    id: 'gaze_estimation',
+    title: 'Gaze Estimation System',
+    subtitle: 'Hands-Free Cursor Control Framework',
+    description: 'Designed a webcam-based eye tracker supporting gaze-based navigation and adaptive head-pose normalization using OpenCV & PyTorch.',
+    techs: ['python', 'opencv', 'pytorch'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+      </svg>
+    )
+  },
+  {
+    id: 'laptopdoc',
+    title: 'LaptopDoc Companion',
+    subtitle: 'AI Laptop Health Companion',
+    description: 'Windows desktop application translating hardware performance, temperature, and thread profiles into plain-English diagnostics.',
+    techs: ['python', 'pyqt5', 'psutil', 'sqlite'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+      </svg>
+    )
+  },
+  {
+    id: 'secure_search',
+    title: 'Secure Search System',
+    subtitle: 'Privacy-Preserving Searchable Encryption',
+    description: 'Enables encrypted keyword searches over AES/RSA encrypted documents without exposing plaintexts to target servers.',
+    techs: ['python', 'flask', 'cryptography', 'web_dev'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    )
+  },
+  {
+    id: 'audio_denoising',
+    title: 'Audio Denoising AI App',
+    subtitle: 'Deep Learning Web Application',
+    description: 'Full-stack Flask application running a PyTorch 1D U-Net deep learning audio wave noise removal model.',
+    techs: ['python', 'pytorch', 'flask', 'web_dev'],
+    icon: (
+      <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+      </svg>
+    )
+  }
+];
+
+// Group tech items by category for UI panels
+const groupedTech = {
+  'Programming & Logic': techData.filter(t => t.category === 'Programming & Logic'),
+  'Libraries & Frameworks': techData.filter(t => t.category === 'Libraries & Frameworks'),
+  'Backend & Databases': techData.filter(t => t.category === 'Backend & Databases'),
+  'AI/ML & Cloud Tools': techData.filter(t => t.category === 'AI/ML & Cloud Tools'),
+  'IoT & Hardware': techData.filter(t => t.category === 'IoT & Hardware')
 };
 
 const Services = () => {
   const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
+  const [hoveredTech, setHoveredTech] = useState(null);
+  const [hoveredProject, setHoveredProject] = useState(null);
+  const [selectedTech, setSelectedTech] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [positions, setPositions] = useState({});
 
-  const pathLength = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.001 });
+  // Active interaction nodes
+  const activeTechId = selectedTech || hoveredTech;
+  const activeProjectId = selectedProject || hoveredProject;
+
+  // Determine what connected nodes are highlighted
+  let highlightedTechs = [];
+  let highlightedProjects = [];
+
+  if (activeTechId) {
+    highlightedTechs = [activeTechId];
+    highlightedProjects = projectsData
+      .filter(p => p.techs.includes(activeTechId))
+      .map(p => p.id);
+  } else if (activeProjectId) {
+    highlightedProjects = [activeProjectId];
+    const project = projectsData.find(p => p.id === activeProjectId);
+    if (project) {
+      highlightedTechs = project.techs;
+    }
+  }
+
+  // Update badge and card coordinates for drawing SVG connectors
+  const updatePositions = () => {
+    if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const newPositions = {};
+
+    techData.forEach(t => {
+      const el = document.getElementById(`tech-${t.id}`);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        newPositions[t.id] = {
+          x: rect.right - containerRect.left,
+          y: rect.top + rect.height / 2 - containerRect.top
+        };
+      }
+    });
+
+    projectsData.forEach(p => {
+      const el = document.getElementById(`proj-${p.id}`);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        newPositions[p.id] = {
+          x: rect.left - containerRect.left,
+          y: rect.top + rect.height / 2 - containerRect.top
+        };
+      }
+    });
+
+    setPositions(newPositions);
+  };
+
+  useEffect(() => {
+    updatePositions();
+    window.addEventListener('resize', updatePositions);
+    // Extra checks to handle late layouts or loaded fonts
+    const timer = setTimeout(updatePositions, 500);
+    return () => {
+      window.removeEventListener('resize', updatePositions);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  // Generate cubic bezier paths
+  const getPathD = (start, end) => {
+    if (!start || !end) return '';
+    const dx = Math.abs(end.x - start.x) * 0.45;
+    return `M ${start.x} ${start.y} C ${start.x + dx} ${start.y}, ${end.x - dx} ${end.y}, ${end.x} ${end.y}`;
+  };
+
+  const handleTechClick = (techId) => {
+    setSelectedProject(null);
+    if (selectedTech === techId) {
+      setSelectedTech(null);
+    } else {
+      setSelectedTech(techId);
+    }
+  };
+
+  const handleProjectClick = (projectId) => {
+    setSelectedTech(null);
+    if (selectedProject === projectId) {
+      setSelectedProject(null);
+    } else {
+      setSelectedProject(projectId);
+    }
+  };
+
+  const clearSelections = () => {
+    setSelectedTech(null);
+    setSelectedProject(null);
+    setHoveredTech(null);
+    setHoveredProject(null);
+  };
+
+  const activeTechDetails = techData.find(t => t.id === activeTechId);
 
   return (
     <section 
-      id="services"
+      id="skills"
       ref={containerRef}
-      className="bg-white pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-[#030712] pt-24 pb-28 px-6 md:px-12 w-full relative overflow-hidden border-t border-zinc-900"
     >
-      <div className="max-w-6xl mx-auto relative md:h-[1350px]">
+      {/* Background visual styles */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d402_1px,transparent_1px),linear-gradient(to_bottom,#06b6d402_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0"></div>
+      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-[#06b6d4]/5 rounded-full filter blur-[150px] pointer-events-none z-0 -translate-x-1/2 -translate-y-1/2"></div>
+      
+      {/* SVG Canvas Overlay (spanning the entire section) */}
+      <svg 
+        className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-10"
+        style={{ overflow: 'visible' }}
+      >
+        <defs>
+          <filter id="synapse-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {techData.map(t => {
+          return projectsData.map(p => {
+            if (!p.techs.includes(t.id)) return null;
+
+            const startPos = positions[t.id];
+            const endPos = positions[p.id];
+            if (!startPos || !endPos) return null;
+
+            const isHighlighted = highlightedTechs.includes(t.id) && highlightedProjects.includes(p.id);
+            const isDimmed = (activeTechId || activeProjectId) && !isHighlighted;
+            const pathD = getPathD(startPos, endPos);
+
+            return (
+              <g key={`synapse-${t.id}-${p.id}`}>
+                <path
+                  d={pathD}
+                  fill="none"
+                  stroke={isHighlighted ? '#06b6d4' : '#1f2937'}
+                  strokeWidth={isHighlighted ? 2 : 0.8}
+                  strokeOpacity={isHighlighted ? 0.95 : isDimmed ? 0.08 : 0.22}
+                  className="transition-all duration-500"
+                  style={isHighlighted ? { filter: 'url(#synapse-glow)' } : {}}
+                />
+
+                {isHighlighted && (
+                  <circle r="3" fill="#06b6d4" className="filter drop-shadow-[0_0_6px_rgba(6,182,212,0.8)]">
+                    <animateMotion 
+                      dur="2s" 
+                      repeatCount="indefinite" 
+                      path={pathD} 
+                    />
+                  </circle>
+                )}
+              </g>
+            );
+          });
+        })}
+      </svg>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Header Content */}
-        <div data-aos="fade-up" className="md:absolute top-10 left-0 md:w-[450px] z-20 mb-16 md:mb-0">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
-            How we work
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div>
+            <div className="inline-block border border-zinc-800 rounded-full px-5 py-1.5 text-xs text-gray-400 font-bold mb-4 uppercase tracking-[0.2em] bg-black/40 backdrop-blur-md">
+              Skills Architecture
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tight">
+              Connected Tech Stack
+            </h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl font-medium leading-relaxed mt-4">
+              Select or hover over any technology on the left to see the systems it powers, or click a project on the right to trace its architectural foundation.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
-            Let us show you how we drive your brand to new heights
-            {/* Hand-drawn arrow */}
-            <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
-              <path d="M4 4 Q 10 10 15 15 M 15 15 L 10 15 M 15 15 L 15 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </h2>
-          <p className="text-gray-500 text-base md:text-lg max-w-sm font-medium leading-relaxed">
-            We follow a structured, creative, and highly technical approach to turn your ideas into robust full-stack applications.
-          </p>
+          {(selectedTech || selectedProject) && (
+            <button
+              onClick={clearSelections}
+              className="px-5 py-2 text-xs font-bold bg-zinc-900 border border-zinc-850 hover:border-red-500/50 text-gray-400 hover:text-white rounded-full transition-all duration-300 self-start md:self-auto shadow-lg flex items-center gap-2"
+            >
+              Reset Selection
+              <span className="text-sm">×</span>
+            </button>
+          )}
         </div>
 
-        {/* Desktop SVG Animated Dashed Line */}
-        <svg 
-          className="hidden md:block absolute top-0 left-0 w-full h-[1350px] pointer-events-none z-0" 
-          viewBox="0 0 1000 1350" 
-          preserveAspectRatio="none"
-        >
-          {/* Faint background path (optional guide) */}
-          <path 
-            d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1200" 
-            fill="none" 
-            stroke="#cbd5e1" 
-            strokeWidth="2" 
-            strokeDasharray="8 10" 
-          />
-
-          {/* Mask to reveal the dashed path based on scroll */}
-          <mask id="path-mask">
-            <motion.path 
-              d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1200" 
-              fill="none" 
-              stroke="white" 
-              strokeWidth="20" 
-              style={{ pathLength }}
-            />
-          </mask>
-
-          {/* The actual dashed line that gets revealed */}
-          <path 
-            d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1200" 
-            fill="none" 
-            stroke="black" 
-            strokeWidth="2" 
-            strokeDasharray="8 10" 
-            mask="url(#path-mask)"
-            className="drop-shadow-sm"
-          />
-        </svg>
-
-        {/* Mobile Animated Vertical Dashed Line */}
-        <svg 
-          className="md:hidden absolute top-0 left-[50%] -translate-x-1/2 w-4 h-[100%] pointer-events-none z-0" 
-          viewBox="0 0 4 100" 
-          preserveAspectRatio="none"
-        >
-          <path 
-            d="M 2,0 L 2,100" 
-            fill="none" 
-            stroke="#cbd5e1" 
-            strokeWidth="4" 
-            strokeDasharray="4 6" 
-            vectorEffect="non-scaling-stroke"
-          />
-          <mask id="path-mask-mobile">
-            <motion.path 
-              d="M 2,0 L 2,100" 
-              fill="none" 
-              stroke="white" 
-              strokeWidth="4" 
-              style={{ pathLength }}
-              vectorEffect="non-scaling-stroke"
-            />
-          </mask>
-          <path 
-            d="M 2,0 L 2,100" 
-            fill="none" 
-            stroke="black" 
-            strokeWidth="4" 
-            strokeDasharray="4 6" 
-            mask="url(#path-mask-mobile)"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-
-        {/* Cards Container */}
-        <div className="flex flex-col gap-8 md:gap-12 items-center md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0">
+        {/* Central interactive grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 relative min-h-[550px]">
           
-          <TagCard 
-            number="01"
-            title="Define"
-            text="We start by understanding your goals, user requirements, and technical constraints to lay a rock-solid foundation for the project."
-            className="md:absolute md:top-[10px] md:right-[5%] lg:right-[10%] rotate-2 md:rotate-6"
-            aosType="fade-left"
-            aosDelay="100"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {/* LEFT: Technology list by Category in a 2-column grid */}
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4 content-start z-20">
+            {Object.keys(groupedTech).map((catName) => (
+              <div 
+                key={catName} 
+                className="bg-zinc-950/40 border border-zinc-900/60 p-4 rounded-[1.5rem] backdrop-blur-sm shadow-xl flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">
+                    {catName}
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {groupedTech[catName].map(tech => {
+                      const isHighlighted = highlightedTechs.includes(tech.id);
+                      const isDimmed = (activeTechId || activeProjectId) && !isHighlighted;
+                      
+                      return (
+                        <button
+                          key={tech.id}
+                          id={`tech-${tech.id}`}
+                          onMouseEnter={() => !selectedTech && !selectedProject && setHoveredTech(tech.id)}
+                          onMouseLeave={() => !selectedTech && !selectedProject && setHoveredTech(null)}
+                          onClick={() => handleTechClick(tech.id)}
+                          className={`px-3 py-1.5 text-xs font-semibold rounded-xl border transition-all duration-300 flex items-center gap-1.5 select-none cursor-pointer ${
+                            isHighlighted
+                              ? 'bg-[#06b6d4]/10 border-[#06b6d4] text-[#06b6d4] shadow-[0_0_10px_rgba(6,182,212,0.2)] scale-[1.02] z-10'
+                              : isDimmed
+                                ? 'bg-zinc-950/20 border-zinc-900/30 text-gray-600 opacity-30 scale-[0.98]'
+                                : 'bg-zinc-950/60 border-zinc-900 text-gray-300 hover:border-zinc-700 hover:text-white'
+                          }`}
+                        >
+                          <span className="text-xs">{tech.icon}</span>
+                          <span>{tech.name}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            ))}
 
-          <TagCard 
-            number="02"
-            title="Design"
-            text="Creating intuitive, pixel-perfect user interfaces and wireframes that guarantee an engaging and accessible user experience."
-            className="md:absolute md:top-[450px] md:left-[5%] lg:left-[10%] -rotate-2 md:-rotate-6"
-            aosType="fade-right"
-            aosDelay="200"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+            {/* Micro details panel (occupying the 6th cell of the Left Column grid) */}
+            <div className="bg-zinc-950/40 border border-zinc-900/40 p-4 rounded-[1.5rem] shadow-xl relative min-h-[110px] flex flex-col justify-center">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-[#06b6d4]/2 rounded-full filter blur-xl pointer-events-none"></div>
+              <AnimatePresence mode="wait">
+                {activeTechDetails ? (
+                  <motion.div
+                    key={activeTechDetails.id}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span className="text-[9px] font-black uppercase tracking-widest text-[#06b6d4] block mb-0.5">
+                      Applied Domain
+                    </span>
+                    <h4 className="text-xs font-black text-white uppercase tracking-tight mb-1">
+                      {activeTechDetails.name}
+                    </h4>
+                    <p className="text-[10px] text-gray-400 font-medium leading-relaxed">
+                      {activeTechDetails.usage}
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="placeholder"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center py-2"
+                  >
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-zinc-500 block mb-0.5">
+                      System Insights
+                    </span>
+                    <p className="text-[10px] text-zinc-500 font-medium leading-normal">
+                      Hover or click a node to reveal integration specifics.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
 
-          <TagCard 
-            number="03"
-            title="Build"
-            text="Developing scalable frontend architectures and secure backend systems using the latest modern tech stack."
-            className="md:absolute md:top-[700px] md:right-[5%] lg:right-[15%] rotate-1 md:rotate-3"
-            aosType="fade-left"
-            aosDelay="300"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {/* MIDDLE: Desktop Empty Spacer */}
+          <div className="hidden lg:block lg:col-span-1"></div>
 
-          <TagCard 
-            number="04"
-            title="Launch"
-            text="Rigorous testing, optimization, and seamless deployment to cloud infrastructure, followed by ongoing support."
-            className="md:absolute md:top-[1050px] md:left-[15%] lg:left-[25%] -rotate-1 md:-rotate-3"
-            aosType="fade-right"
-            aosDelay="400"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {/* RIGHT: Project cards (now in 3 columns) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 content-start z-20">
+            {projectsData.map((project) => {
+              const isHighlighted = highlightedProjects.includes(project.id);
+              const isDimmed = (activeTechId || activeProjectId) && !isHighlighted;
 
-          {/* Hand-drawn end text */}
-          <div 
-            data-aos="fade-in" 
-            data-aos-delay="600"
-            className="hidden md:block absolute top-[1250px] left-[60%] font-['Caveat',cursive] text-3xl text-gray-600 rotate-6"
-          >
-            Ready to be delivered!
+              return (
+                <div
+                  key={project.id}
+                  id={`proj-${project.id}`}
+                  onMouseEnter={() => !selectedTech && !selectedProject && setHoveredProject(project.id)}
+                  onMouseLeave={() => !selectedTech && !selectedProject && setHoveredProject(null)}
+                  onClick={() => handleProjectClick(project.id)}
+                  className={`p-6 rounded-[2rem] border transition-all duration-500 cursor-pointer select-none relative group ${
+                    isHighlighted
+                      ? 'bg-zinc-950/80 border-[#06b6d4] text-white shadow-[0_0_25px_rgba(6,182,212,0.15)] scale-[1.02] z-10'
+                      : isDimmed
+                        ? 'bg-zinc-950/20 border-zinc-900/30 text-gray-400 opacity-30 scale-[0.98]'
+                        : 'bg-zinc-950/60 border-zinc-900 text-gray-300 hover:border-zinc-700'
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-colors duration-500 ${
+                      isHighlighted
+                        ? 'bg-[#06b6d4]/10 border-[#06b6d4]/30'
+                        : 'bg-zinc-900 border-zinc-850 group-hover:bg-zinc-850'
+                    }`}>
+                      {project.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="mb-2">
+                        <h4 className={`text-sm md:text-base font-black transition-colors duration-300 leading-tight ${
+                          isHighlighted ? 'text-[#06b6d4]' : 'text-white'
+                        }`}>
+                          {project.title}
+                        </h4>
+                        <span className={`text-[9px] font-black uppercase tracking-widest block mt-0.5 transition-colors duration-350 ${
+                          isHighlighted ? 'text-[#06b6d4]/70' : 'text-zinc-500'
+                        }`}>
+                          {project.subtitle}
+                        </span>
+                      </div>
+                      <p className={`text-xs leading-relaxed transition-colors duration-500 ${
+                        isHighlighted ? 'text-gray-300' : 'text-gray-400'
+                      }`}>
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
