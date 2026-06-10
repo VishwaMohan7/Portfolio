@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { downloadResumeFromGit } from '../utils/resume';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -160,13 +161,12 @@ const Hero = () => {
             </a>
 
             {/* Download Resume Button */}
-            <a 
-              href="/VISHWAMOHAN_S_N_Resume.pdf" 
-              download="VISHWAMOHAN_S_N_Resume.pdf"
+            <button 
+              onClick={downloadResumeFromGit}
               className="px-5 py-3 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-transparent border border-[#06b6d4] text-[#06b6d4] font-black hover:bg-[#06b6d4] hover:text-black hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:scale-105 inline-block text-center uppercase tracking-wider"
             >
               Download Resume
-            </a>
+            </button>
             
             {/* Secondary Button - Contact */}
             <a href="#contact" className="px-5 py-3 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-black/40 border border-[#06b6d4]/40 text-white font-bold hover:bg-[#06b6d4]/20 hover:border-[#06b6d4]/80 transition-all duration-300 backdrop-blur-md inline-block text-center uppercase tracking-wider">

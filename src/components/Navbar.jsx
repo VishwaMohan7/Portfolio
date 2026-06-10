@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { downloadResumeFromGit } from '../utils/resume';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,13 +56,12 @@ const Navbar = () => {
         {/* Right Side: Resume & CTA Buttons */}
         <div className="flex items-center gap-4">
           {/* Resume button (visible on both desktop and mobile) */}
-          <a 
-            href="/VISHWAMOHAN_S_N_Resume.pdf" 
-            download="VISHWAMOHAN_S_N_Resume.pdf"
+          <button 
+            onClick={downloadResumeFromGit}
             className="px-4 py-2 text-xs md:text-sm rounded-full bg-transparent border border-[#06b6d4]/50 text-white font-bold hover:bg-[#06b6d4] hover:text-black hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all duration-300 backdrop-blur-md"
           >
             Resume
-          </a>
+          </button>
 
           {/* Hire Me (hidden on mobile, visible on desktop) */}
           <a 
