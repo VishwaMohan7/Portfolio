@@ -44,6 +44,48 @@ body {
 .light {
   background-color: #ffffff;
   color: #0f172a;
+
+  /* Redefine Tailwind's zinc color scale to be inverted in light mode */
+  --color-zinc-950: #ffffff;
+  --color-zinc-900: #f8fafc;
+  --color-zinc-850: #f1f5f9;
+  --color-zinc-800: #e2e8f0;
+  --color-zinc-700: #cbd5e1;
+  --color-zinc-600: #94a3b8;
+  --color-zinc-500: #64748b;
+  --color-zinc-400: #475569;
+  --color-zinc-300: #334155;
+  --color-zinc-200: #1e293b;
+  --color-zinc-100: #0f172a;
+  --color-zinc-50: #0f172a;
+
+  /* Redefine Tailwind's gray color scale to be inverted in light mode */
+  --color-gray-950: #ffffff;
+  --color-gray-900: #f8fafc;
+  --color-gray-850: #f1f5f9;
+  --color-gray-800: #e2e8f0;
+  --color-gray-700: #cbd5e1;
+  --color-gray-600: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-400: #475569;
+  --color-gray-300: #334155;
+  --color-gray-200: #1e293b;
+  --color-gray-100: #0f172a;
+  --color-gray-50: #0f172a;
+
+  /* Redefine Tailwind's slate color scale to be inverted in light mode */
+  --color-slate-950: #ffffff;
+  --color-slate-900: #f8fafc;
+  --color-slate-850: #f1f5f9;
+  --color-slate-800: #e2e8f0;
+  --color-slate-700: #cbd5e1;
+  --color-slate-600: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-400: #475569;
+  --color-slate-300: #334155;
+  --color-slate-200: #1e293b;
+  --color-slate-100: #0f172a;
+  --color-slate-50: #0f172a;
 }
 
 .light body {
@@ -123,15 +165,7 @@ body {
   color: #0369a1 !important; /* Sky 700 - high legibility */
 }
 
-.light .text-[#06b6d4] {
-  color: #0369a1 !important;
-}
-
 .light .border-\[\#06b6d4\] {
-  border-color: #0891b2 !important;
-}
-
-.light .border-[#06b6d4] {
   border-color: #0891b2 !important;
 }
 
@@ -152,16 +186,21 @@ body {
 
 /* Cards & Containers: High Contrast White Background + Solid Shadow & Border */
 .light .bg-zinc-950,
-.light .bg-zinc-900\/60,
 .light .bg-zinc-950\/60,
-.light .bg-[#111111] {
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900\/40,
+.light .bg-zinc-900,
+.light .bg-black\/40 {
   background-color: #ffffff !important;
   border-color: #cbd5e1 !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02) !important;
+  --color-white: #0f172a !important; /* Force text-white inside cards to be dark */
 }
 
 .light .bg-zinc-950:hover,
-.light .bg-zinc-950\/60:hover {
+.light .bg-zinc-950\/60:hover,
+.light .bg-zinc-900\/60:hover,
+.light .bg-zinc-900:hover {
   border-color: #94a3b8 !important;
   box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.08) !important;
 }
@@ -173,6 +212,13 @@ body {
 .light .bg-black\/40 {
   background-color: #f1f5f9 !important;
   border-color: #e2e8f0 !important;
+}
+
+/* Projects Category Filters Row */
+.light #projects div.bg-black\/50,
+.light #projects div.rounded-full.backdrop-blur-md {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: #cbd5e1 !important;
 }
 
 .light .text-gray-500.bg-zinc-900 {
@@ -315,7 +361,7 @@ body {
 }
 
 /* ID Lanyard badge string & layout */
-.light .absolute.-top-32.left-1/2.bg-black {
+.light .absolute.-top-32.left-1\/2.bg-black {
   background-color: #475569 !important;
 }
 
@@ -409,4 +455,36 @@ body {
 
 .light .text-zinc-400 {
   color: #475569 !important;
+}
+
+/* ==========================================
+   10. Final Visual Polish & Contrast Tweaks
+   ========================================== */
+/* Seamless Section SVG Dividers */
+.light svg.fill-\[\#030712\] {
+  fill: #f1f5f9 !important;
+}
+
+.light svg.fill-\[\#0a0a0a\] {
+  fill: #f8fafc !important;
+}
+
+/* Visibility for Tech Logos in About Section */
+.light #about svg.text-white {
+  color: #475569 !important;
+}
+
+.light #about svg.text-white:hover {
+  color: #0f172a !important;
+}
+
+/* Legible Project Filter Hover States */
+.light #projects button:not(.bg-\[\#06b6d4\]):hover {
+  color: #0f172a !important;
+  background-color: #cbd5e1 !important;
+}
+
+/* Contact Parallax Background Large Text */
+.light #contact h1.text-white\/5 {
+  color: rgba(15, 23, 42, 0.04) !important;
 }
