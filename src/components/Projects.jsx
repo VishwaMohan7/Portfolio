@@ -16,6 +16,7 @@ const projectsData = [
       "Optimized inference pipelines to minimize latency"
     ],
     tech: ["YOLOv8", "VGG16", "CNNs", "Vertex AI", "Python", "Google Cloud"],
+    github: "https://github.com/VishwaMohan7/osteoporosis",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 3.75a6 6 0 00-5.98 6.496A5.25 5.25 0 006.75 20.25H18a4.5 4.5 0 002.206-8.423 3.75 3.75 0 00-5.956-4.328 6 6 0 00-3.75-3.75z" />
@@ -34,6 +35,7 @@ const projectsData = [
       "Multilingual voice interaction (English, Hindi, Kannada)"
     ],
     tech: ["Llama 3", "Streamlit", "Ollama", "Python", "STT/TTS", "Prompt Engineering"],
+    github: "https://github.com/VishwaMohan7/AI-village-health-companion",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
@@ -52,6 +54,7 @@ const projectsData = [
       "Automated GSM alerts and thermoelectric cooling loops"
     ],
     tech: ["ESP32", "Sensors", "GSM Module", "Thermoelectric Cooling", "IoT", "C++"],
+    github: "",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.008 1.24l.885 1.77a2.25 2.25 0 002.007 1.24h1.98a2.25 2.25 0 002.007-1.24l.885-1.77a2.25 2.25 0 012.007-1.24h3.86m-18 0h18M12 7.5h.008v.008H12V7.5z" />
@@ -70,6 +73,7 @@ const projectsData = [
       "Reduced manual administrative tracking effort by 80%"
     ],
     tech: ["OpenCV", "Deep Learning", "Python", "Face Recognition", "MySQL"],
+    github: "https://github.com/VishwaMohan7/attendance",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A3.318 3.318 0 0112 22.5a3.318 3.318 0 01-3-3.263v-.109m0-19.102a9.337 9.337 0 014.121.952 4.125 4.125 0 01-7.533 2.493M9 19.128v-.003c0-1.113.285-2.16.786-3.07M9 19.128v.109A3.318 3.318 0 016 22.5a3.318 3.318 0 01-3-3.263v-.109m12-9.75a3 3 0 11-6 0 3 3 0 016 0zm-3-7.5a3 3 0 100 6 3 3 0 000-6z" />
@@ -88,6 +92,7 @@ const projectsData = [
       "Responsive navigation controls on standard consumer hardware"
     ],
     tech: ["Computer Vision", "Eye Tracking", "OpenCV", "PyTorch", "Python", "HCI"],
+    github: "https://github.com/preetham-hs-2005/Implementation-of-a-Real-Time-Gaze-Estimation-System",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -107,6 +112,7 @@ const projectsData = [
       "Complete offline, privacy-first desktop operation with SQLite"
     ],
     tech: ["Python", "PyQt5", "psutil", "WMI", "SQLite", "PyInstaller"],
+    github: "https://github.com/VishwaMohan7/laptop_buddy",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
@@ -125,6 +131,7 @@ const projectsData = [
       "Client-side decryption and complete data confidentiality"
     ],
     tech: ["Python", "Flask", "AES", "RSA", "SHA-256", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/VishwaMohan7/Encrypto-secure-search-on-encrypted-data",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -143,6 +150,7 @@ const projectsData = [
       "Responsive web interface for upload, denoising, and audio playback"
     ],
     tech: ["Python", "PyTorch", "Flask", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/VishwaMohan7/audio-denoiser",
     icon: (
       <svg className="w-8 h-8 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
@@ -256,16 +264,31 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 pt-6 border-t border-zinc-900">
-                  {project.tech.map((t) => (
-                    <span 
-                      key={t}
-                      className="text-[9px] md:text-[10px] font-bold bg-zinc-900/60 text-gray-400 border border-zinc-800 px-3 py-1 rounded-full group-hover:text-white transition-colors duration-300"
+                {/* Tech Tags & GitHub Link */}
+                <div className="flex justify-between items-center pt-6 border-t border-zinc-900 gap-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span 
+                        key={t}
+                        className="text-[9px] md:text-[10px] font-bold bg-zinc-900/60 text-gray-400 border border-zinc-800 px-3 py-1 rounded-full group-hover:text-white transition-colors duration-300"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  {project.github && (
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-[#06b6d4] hover:border-[#06b6d4] hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all duration-300 shrink-0"
+                      title="View GitHub Repository"
                     >
-                      {t}
-                    </span>
-                  ))}
+                      <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                  )}
                 </div>
 
               </motion.div>

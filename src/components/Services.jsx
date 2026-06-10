@@ -190,6 +190,7 @@ const projectsData = [
     subtitle: 'AI/ML Medical Screening',
     description: 'Developed an AI-based early detection system using X-ray analysis, leveraging CNN models (YOLOv8, VGG16) deployed on Vertex AI.',
     techs: ['python', 'yolov8', 'pytorch', 'tensorflow', 'vertex_ai'],
+    github: "https://github.com/VishwaMohan7/osteoporosis",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 3.75a6 6 0 00-5.98 6.496A5.25 5.25 0 006.75 20.25H18a4.5 4.5 0 002.206-8.423 3.75 3.75 0 00-5.956-4.328 6 6 0 00-3.75-3.75z" />
@@ -202,6 +203,7 @@ const projectsData = [
     subtitle: 'Multilingual GenAI Voice Assistant',
     description: 'Built an interactive symptom guidance tool powered by Llama 3 & Ollama with prompt engineering, Streamlit, and TTS/STT integration.',
     techs: ['python', 'llms', 'prompt_eng', 'ollama', 'streamlit'],
+    github: "https://github.com/VishwaMohan7/AI-village-health-companion",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
@@ -214,6 +216,7 @@ const projectsData = [
     subtitle: 'IoT Biomedical Logistics',
     description: 'Built a real-time cold-chain tracking solution utilizing ESP32, temperature sensors, GPS modules, accelerometers, and GSM alerts.',
     techs: ['c_lang', 'esp32', 'sensors'],
+    github: "",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.008 1.24l.885 1.77a2.25 2.25 0 002.007 1.24h1.98a2.25 2.25 0 002.007-1.24l.885-1.77a2.25 2.25 0 012.007-1.24h3.86m-18 0h18" />
@@ -226,6 +229,7 @@ const projectsData = [
     subtitle: 'Real-Time Face Recognition Portal',
     description: 'Developed a real-time facial recognition verification portal with OpenCV and deep learning, logging entries to MySQL schemas.',
     techs: ['python', 'opencv', 'mysql'],
+    github: "https://github.com/VishwaMohan7/attendance",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493" />
@@ -238,6 +242,7 @@ const projectsData = [
     subtitle: 'Hands-Free Cursor Control Framework',
     description: 'Designed a webcam-based eye tracker supporting gaze-based navigation and adaptive head-pose normalization using OpenCV & PyTorch.',
     techs: ['python', 'opencv', 'pytorch'],
+    github: "https://github.com/preetham-hs-2005/Implementation-of-a-Real-Time-Gaze-Estimation-System",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -250,6 +255,7 @@ const projectsData = [
     subtitle: 'AI Laptop Health Companion',
     description: 'Windows desktop application translating hardware performance, temperature, and thread profiles into plain-English diagnostics.',
     techs: ['python', 'pyqt5', 'psutil', 'sqlite'],
+    github: "https://github.com/VishwaMohan7/laptop_buddy",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
@@ -262,6 +268,7 @@ const projectsData = [
     subtitle: 'Privacy-Preserving Searchable Encryption',
     description: 'Enables encrypted keyword searches over AES/RSA encrypted documents without exposing plaintexts to target servers.',
     techs: ['python', 'flask', 'cryptography', 'web_dev'],
+    github: "https://github.com/VishwaMohan7/Encrypto-secure-search-on-encrypted-data",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -274,6 +281,7 @@ const projectsData = [
     subtitle: 'Deep Learning Web Application',
     description: 'Full-stack Flask application running a PyTorch 1D U-Net deep learning audio wave noise removal model.',
     techs: ['python', 'pytorch', 'flask', 'web_dev'],
+    github: "https://github.com/VishwaMohan7/audio-denoiser",
     icon: (
       <svg className="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
@@ -330,8 +338,10 @@ const Services = () => {
       const el = document.getElementById(`tech-${t.id}`);
       if (el) {
         const rect = el.getBoundingClientRect();
+        const catEl = el.closest('.category-card');
+        const catRect = catEl ? catEl.getBoundingClientRect() : rect;
         newPositions[t.id] = {
-          x: rect.right - containerRect.left,
+          x: catRect.right - containerRect.left,
           y: rect.top + rect.height / 2 - containerRect.top
         };
       }
@@ -361,6 +371,11 @@ const Services = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  // Recalculate line positions when interaction state changes to ensure perfect alignment
+  useEffect(() => {
+    updatePositions();
+  }, [selectedTech, selectedProject, hoveredTech, hoveredProject]);
 
   // Generate cubic bezier paths
   const getPathD = (start, end) => {
@@ -400,7 +415,7 @@ const Services = () => {
     <section 
       id="skills"
       ref={containerRef}
-      className="bg-[#030712] pt-24 pb-28 px-6 md:px-12 w-full relative overflow-hidden border-t border-zinc-900"
+      className="bg-[#030712] pt-16 pb-20 px-6 md:px-12 w-full relative overflow-hidden border-t border-zinc-900"
     >
       {/* Background visual styles */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d402_1px,transparent_1px),linear-gradient(to_bottom,#06b6d402_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0"></div>
@@ -463,7 +478,7 @@ const Services = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-8">
           <div>
             <div className="inline-block border border-zinc-800 rounded-full px-5 py-1.5 text-xs text-gray-400 font-bold mb-4 uppercase tracking-[0.2em] bg-black/40 backdrop-blur-md">
               Skills Architecture
@@ -490,11 +505,11 @@ const Services = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 relative min-h-[550px]">
           
           {/* LEFT: Technology list by Category in a 2-column grid */}
-          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4 content-start z-20">
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5 content-start z-20">
             {Object.keys(groupedTech).map((catName) => (
               <div 
                 key={catName} 
-                className="bg-zinc-950/40 border border-zinc-900/60 p-4 rounded-[1.5rem] backdrop-blur-sm shadow-xl flex flex-col justify-between"
+                className="category-card bg-zinc-950/40 border border-zinc-900/60 p-4 rounded-[1.5rem] backdrop-blur-sm shadow-xl flex flex-col justify-between"
               >
                 <div>
                   <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">
@@ -573,10 +588,10 @@ const Services = () => {
           </div>
 
           {/* MIDDLE: Desktop Empty Spacer */}
-          <div className="hidden lg:block lg:col-span-1"></div>
+          <div className="hidden lg:block lg:col-span-3"></div>
 
-          {/* RIGHT: Project cards (now in 3 columns) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 content-start z-20">
+          {/* RIGHT: Project cards (single column on desktop) */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 content-start z-20">
             {projectsData.map((project) => {
               const isHighlighted = highlightedProjects.includes(project.id);
               const isDimmed = (activeTechId || activeProjectId) && !isHighlighted;
@@ -588,7 +603,7 @@ const Services = () => {
                   onMouseEnter={() => !selectedTech && !selectedProject && setHoveredProject(project.id)}
                   onMouseLeave={() => !selectedTech && !selectedProject && setHoveredProject(null)}
                   onClick={() => handleProjectClick(project.id)}
-                  className={`p-6 rounded-[2rem] border transition-all duration-500 cursor-pointer select-none relative group ${
+                  className={`p-4 rounded-[1.5rem] border transition-all duration-500 cursor-pointer select-none relative group ${
                     isHighlighted
                       ? 'bg-zinc-950/80 border-[#06b6d4] text-white shadow-[0_0_25px_rgba(6,182,212,0.15)] scale-[1.02] z-10'
                       : isDimmed
@@ -604,8 +619,8 @@ const Services = () => {
                     }`}>
                       {project.icon}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="mb-2">
+                    <div className="flex-1 min-w-0 flex items-center justify-between gap-2.5">
+                      <div>
                         <h4 className={`text-sm md:text-base font-black transition-colors duration-300 leading-tight ${
                           isHighlighted ? 'text-[#06b6d4]' : 'text-white'
                         }`}>
@@ -617,11 +632,20 @@ const Services = () => {
                           {project.subtitle}
                         </span>
                       </div>
-                      <p className={`text-xs leading-relaxed transition-colors duration-500 ${
-                        isHighlighted ? 'text-gray-300' : 'text-gray-400'
-                      }`}>
-                        {project.description}
-                      </p>
+                      {project.github && (
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-2 rounded-full bg-zinc-900 border border-zinc-850 text-gray-500 hover:text-[#06b6d4] hover:border-[#06b6d4] hover:shadow-[0_0_10px_rgba(6,182,212,0.3)] transition-all duration-300 shrink-0 animate-pulse-slow z-30"
+                          title="View GitHub Repository"
+                        >
+                          <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
