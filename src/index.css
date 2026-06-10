@@ -37,3 +37,225 @@ body {
   90% { transform: translateY(-15px); opacity: 1; }
   100% { transform: translateY(0); opacity: 1; }
 }
+
+/* ==========================================
+   Light Mode Theme Overrides
+   ========================================== */
+.light {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.light body {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* Base Section Backgrounds */
+.light #about {
+  background-color: #f8fafc !important;
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #services {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #skills,
+.light #contact {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #experience,
+.light #projects,
+.light #education {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light footer {
+  background-color: #0f172a !important;
+  color: #cbd5e1 !important;
+}
+
+.light footer h2 {
+  color: #ffffff !important;
+}
+
+/* Translucent Backgrounds & Blurs */
+.light .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light .bg-zinc-900\/60 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.light .bg-zinc-900,
+.light .bg-zinc-950,
+.light .bg-[#04080f],
+.light .bg-[#111111],
+.light .bg-[#0f0f0f],
+.light .bg-[#0a0a0a],
+.light .bg-[#030712] {
+  background-color: #ffffff !important;
+}
+
+/* Text Overrides */
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light .text-slate-300,
+.light .text-slate-400,
+.light .text-gray-300,
+.light .text-gray-400 {
+  color: #334155 !important;
+}
+
+.light .text-zinc-500,
+.light .text-gray-500 {
+  color: #64748b !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Custom glow/blur elements in background */
+.light .bg-\[\#06b6d4\]\/5 {
+  background-color: rgba(6, 182, 212, 0.08) !important;
+}
+
+/* Borders */
+.light .border-zinc-900,
+.light .border-zinc-850,
+.light .border-zinc-800,
+.light .border-white\/20,
+.light .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Navbar specific override */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+.light nav a {
+  color: #334155 !important;
+}
+
+.light nav a:hover {
+  color: #06b6d4 !important;
+}
+
+.light nav button {
+  color: #0f172a !important;
+  border-color: rgba(6, 182, 212, 0.4) !important;
+}
+
+.light nav button:hover {
+  color: #ffffff !important;
+  background-color: #06b6d4 !important;
+}
+
+/* Mobile Slide-Down Menu */
+.light .md\:hidden.absolute.top-full {
+  background-color: #ffffff !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .md\:hidden.absolute.top-full a {
+  color: #0f172a !important;
+  border-color: #f1f5f9 !important;
+}
+
+.light .md\:hidden.absolute.top-full a:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Preloader */
+.light .fixed.inset-0.w-full.h-screen.bg-\[\#04080f\] {
+  background-color: #ffffff !important;
+}
+
+.light .fixed.inset-0.w-full.h-screen.bg-\[\#04080f\] h1 {
+  color: #0f172a !important;
+}
+
+/* Lanyard string and badge */
+.light .bg-gray-900 {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 20px 45px -5px rgba(15, 23, 42, 0.06), 0 10px 15px -5px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light .absolute.-top-32.left-1/2.bg-black {
+  background-color: #475569 !important;
+}
+
+/* Interactive elements / cards */
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light .group:hover .bg-zinc-900\/60,
+.light .group:hover .bg-zinc-900 {
+  border-color: #06b6d4 !important;
+}
+
+/* Hover scales and icons */
+.light svg.text-white:hover {
+  color: #0f172a !important;
+}
+
+.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+/* Inputs / Forms */
+.light input,
+.light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.light input:focus,
+.light textarea:focus {
+  border-color: #06b6d4 !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Services component filters/tags */
+.light .text-\[10px\].font-black.text-gray-500 {
+  color: #64748b !important;
+}
+
+.light .border-zinc-850 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Work / Experience timeline connector lines */
+.light .bg-zinc-800 {
+  background-color: #e2e8f0 !important;
+}
+
+.light .text-zinc-500 {
+  color: #64748b !important;
+}
+
+.light .text-zinc-400 {
+  color: #475569 !important;
+}

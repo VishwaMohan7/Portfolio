@@ -4,6 +4,23 @@ import { downloadResumeFromGit } from '../utils/resume';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  // Handle setting class on html element
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   // Handle scroll to make navbar more solid
   useEffect(() => {
@@ -54,7 +71,28 @@ const Navbar = () => {
           ))}
         </div>
         {/* Right Side: Resume & CTA Buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
+          {/* Theme Toggle Button */}
+          <button 
+            onClick={toggleTheme}
+            className={`p-2 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center border outline-none ${
+              theme === 'dark' 
+                ? 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/30' 
+                : 'bg-black/5 border-black/10 text-black hover:bg-black/10 hover:border-black/25'
+            }`}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <svg className="w-4.5 h-4.5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 7a5 5 0 110 10 5 5 0 010-10zm0-5a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 15a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zM5.22 5.22a1 1 0 011.41 0l1.42 1.41a1 1 0 01-1.41 1.42L5.22 6.63a1 1 0 010-1.41zm12.02 12.02a1 1 0 011.41 0l1.42 1.42a1 1 0 01-1.41 1.41l-1.42-1.41a1 1 0 010-1.42zM2 12a1 1 0 011-1h2a1 1 0 010 2H3a1 1 0 01-1-1zm15 0a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1zM5.22 18.78a1 1 0 010-1.41l1.42-1.42a1 1 0 011.41 1.42l-1.42 1.41a1 1 0 01-1.41 0zm12.02-12.02a1 1 0 010-1.42l1.42-1.41a1 1 0 011.41 1.41l-1.42 1.42a1 1 0 01-1.41 0z" />
+              </svg>
+            ) : (
+              <svg className="w-4.5 h-4.5 text-[#06b6d4]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05z" />
+              </svg>
+            )}
+          </button>
+
           {/* Resume button (visible on both desktop and mobile) */}
           <button 
             onClick={downloadResumeFromGit}
