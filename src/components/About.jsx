@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from '../assets/about/profile.jpg';
 
 const About = () => {
   return (
@@ -21,13 +22,13 @@ const About = () => {
                 <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner"></div>
               </div>
               {/* Image Container / Placeholder */}
-              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-950 border border-zinc-800 flex flex-col justify-center items-center p-6 text-center group">
-                <svg className="w-16 h-16 text-zinc-700 group-hover:text-[#06b6d4] transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-650 mt-4 group-hover:text-[#06b6d4] transition-colors duration-300">
-                  Add Photo Later
-                </span>
+              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-950 border border-zinc-800 relative group">
+                <img 
+                  src={profileImg} 
+                  alt="VishwaMohan S N" 
+                  className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                />
+                <div className="absolute inset-0 border border-white/10 rounded-xl pointer-events-none group-hover:border-[#06b6d4]/40 transition-colors duration-500"></div>
               </div>
             </div>
           </div>
