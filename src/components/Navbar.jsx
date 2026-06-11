@@ -101,13 +101,7 @@ const Navbar = () => {
             Resume
           </button>
 
-          {/* Hire Me (hidden on mobile, visible on desktop) */}
-          <a 
-            href="#contact" 
-            className="hidden md:inline-block px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"
-          >
-            Hire Me
-          </a>
+
 
           {/* Mobile Hamburger Menu Icon (hidden on desktop, visible on mobile) */}
           <div className="md:hidden flex items-center">
@@ -144,15 +138,7 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <div className="pt-4 pb-2">
-             <a 
-               href="#contact" 
-               onClick={() => setIsOpen(false)} 
-               className="inline-block px-6 py-3 rounded-full bg-white text-[#06b6d4] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
-             >
-               Hire Me
-             </a>
-          </div>
+
         </div>
       </div>
     </nav>

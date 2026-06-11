@@ -136,7 +136,7 @@ const Hero = () => {
             data-aos-delay="100"
             className="text-white text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.05]"
           >
-            Hi, I’m VishwaMohan SN. <br /> 
+            Hi, I’m <span className="whitespace-nowrap">VishwaMohan SN.</span> <br /> 
             <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.7)] md:[-webkit-text-stroke:1.5px_rgba(255,255,255,0.75)]">AI/ML Engineer</span>
           </h1>
 
